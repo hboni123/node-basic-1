@@ -148,11 +148,11 @@ app.post('/db-save', async (req, res) => {
           dob: new Date(dob),
           monthly_income
       });
-
+      console.log("Customer saved!!")
       res.status(200).json(customer)
   } catch (error) {
       console.error('Error saving customer:', error);
-      res.status(500).json({ message: 'Internal Server Error' });
+      res.status(500).json({ message: error });
   }
 });
 
@@ -201,7 +201,7 @@ app.get('/db-search', async (req, res) => {
       });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Server error' });
+      res.status(500).json({ error: error });
     }
   });
   
