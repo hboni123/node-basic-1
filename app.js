@@ -1,11 +1,9 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const Customer = require('./models/customer.js');
 const moment = require('moment');
 
 require('dotenv').config();
-
 
 const app = express();
 const PORT = 3000;
@@ -16,9 +14,6 @@ let timeLimit1 = 0;
 let timeLimit2 = 0;
 let s = 1;
 let timestamp = moment();
-
-
- 
 
 app.use(express.json());
 
@@ -155,8 +150,6 @@ app.post('/db-save', async (req, res) => {
       res.status(500).json({ message: error });
   }
 });
-
-
 
 app.post('/time-based-api', async (req, res) => {
     const { customer_name, dob, monthly_income } = req.body;
