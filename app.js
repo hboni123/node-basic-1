@@ -63,7 +63,7 @@ let callHistory = [];
 
 //5 min call limit
 
-function canMakeApiCall() {
+function checkRateLimit2() {
     const now = Date.now();
     
     callHistory = callHistory.filter(timestamp => now - timestamp <= 300000);
@@ -140,7 +140,7 @@ app.post('/db-save', async (req, res) => {
           };
       }
 
-      canMakeApiCall()     
+      checkRateLimit2()     
       checkRateLimit(customer_name, 1, 120000);
 
       const customer = await Customer.create({
